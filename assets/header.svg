@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="450" viewBox="0 0 1200 450" role="img" aria-labelledby="title desc">
+  <title id="title">Yashveer Singh — building Aetherion Labs</title>
+  <desc id="desc">A charcoal and red banner with a floating geometric robot. AI systems, backend engineering, and developer tools.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101114"/><stop offset="1" stop-color="#08090c"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#c74944" stop-opacity=".18"/><stop offset="1" stop-color="#c74944" stop-opacity="0"/></radialGradient>
+    <linearGradient id="top" x2="1" y2="1"><stop stop-color="#585961"/><stop offset="1" stop-color="#2a2c32"/></linearGradient>
+    <linearGradient id="front" x2="1" y2="1"><stop stop-color="#303239"/><stop offset="1" stop-color="#15161b"/></linearGradient>
+    <linearGradient id="side" x2="0" y2="1"><stop stop-color="#35353c"/><stop offset="1" stop-color="#18191f"/></linearGradient>
+    <linearGradient id="red" x2="1" y2="1"><stop stop-color="#ffb4a5"/><stop offset="1" stop-color="#e15453"/></linearGradient>
+  </defs>
+  <rect width="1200" height="450" rx="20" fill="url(#bg)"/>
+  <rect x=".5" y=".5" width="1199" height="449" rx="20" fill="none" stroke="#292b31"/>
+  <ellipse cx="940" cy="235" rx="290" ry="250" fill="url(#halo)"/>
+  <g fill="none" stroke="#262229" stroke-width="1">
+    <path d="M644 354 914 198 1184 354 914 510Z M704 354 914 232 1124 354 914 476Z M764 354 914 267 1064 354 914 441Z M824 354 914 302 1004 354 914 406Z"/>
+    <path d="M644 354H1184 M914 198V450 M704 319 975 476 M764 284 1034 441 M824 249 1094 406 M734 406 1004 249 M794 441 1064 284 M854 476 1124 319"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <rect x="44" y="34" width="35" height="35" rx="9" fill="#ee7168"/>
+    <text x="51" y="57" fill="#111216" font-size="15" font-weight="800">YS</text>
+    <text x="94" y="56" fill="#d4cec9" font-size="13" letter-spacing="2.3">AETHERION LABS</text>
+    <text x="1152" y="55" text-anchor="end" fill="#8d858b" font-size="11" letter-spacing="1.8">PERSONAL WORKSPACE / 01</text>
+    <text x="46" y="125" fill="#ef8b7f" font-size="12" letter-spacing="3">ENGINEER IN THE MAKING</text>
+    <text x="42" y="207" fill="#eee8e1" font-size="77" font-weight="800" letter-spacing="-3">YASHVEER</text>
+    <text x="42" y="282" fill="#eee8e1" font-size="77" font-weight="800" letter-spacing="-3">SINGH<tspan fill="#ee7168">.</tspan></text>
+    <text x="47" y="324" fill="#b8b0ac" font-size="18">AI systems. Backend engineering. Developer tools.</text>
+    <path d="M47 364H620" stroke="#292b31"/>
+    <text x="47" y="397" fill="#e3b7aa" font-size="13" letter-spacing="1.2">BUILD. BREAK. UNDERSTAND. IMPROVE. REPEAT.</text>
+  </g>
+  <g>
+    <ellipse cx="915" cy="361" rx="116" ry="21" fill="#050609" opacity=".8"/>
+    <ellipse cx="915" cy="361" rx="94" ry="12" fill="#ed746b" opacity=".08">
+      <animate attributeName="rx" values="94;74;94" dur="5s" repeatCount="indefinite"/>
+    </ellipse>
+    <g>
+      <animateTransform attributeName="transform" type="translate" values="0 0;0 -12;0 0" dur="5s" repeatCount="indefinite"/>
+      <path d="M884 130V107" stroke="#767279" stroke-width="5"/>
+      <circle cx="884" cy="102" r="8" fill="#ef8b7f"/>
+      <circle cx="884" cy="102" r="15" fill="none" stroke="#ef8b7f" opacity=".25">
+        <animate attributeName="r" values="12;22;12" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <path d="M811 161 888 118 1034 164 956 211Z" fill="url(#top)" stroke="#737077"/>
+      <path d="M811 161 956 211 956 317 811 261Z" fill="url(#front)" stroke="#696067"/>
+      <path d="M956 211 1034 164 1034 266 956 317Z" fill="url(#side)" stroke="#696067"/>
+      <path d="M830 190 937 227 937 284 830 244Z" fill="#090b10" stroke="#564349" stroke-width="2"/>
+      <path d="M845 211 864 218 864 234 845 227Z M900 230 919 237 919 253 900 246Z" fill="url(#red)">
+        <animate attributeName="opacity" values="1;1;1;.28;1;1" keyTimes="0;.70;.72;.74;.76;1" dur="6s" repeatCount="indefinite"/>
+      </path>
+      <path d="M869 248 890 256" stroke="#ee9385" stroke-width="3" stroke-linecap="round"/>
+      <path d="M974 226 1015 202 M974 238 1015 214 M974 250 1015 226" stroke="#75636a" stroke-width="3"/>
+      <path d="M850 279 927 308 927 329 850 299Z" fill="#2f2b31" stroke="#6a5257"/>
+      <path d="M927 308 992 275 992 295 927 329Z" fill="#1c1c23" stroke="#6a5257"/>
+      <path d="M784 211 804 219 804 258 784 250Z M1042 192 1056 183 1056 221 1042 230Z" fill="#e67970"/>
+      <path d="M867 301 891 310" stroke="#e78275" stroke-width="3"/>
+    </g>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif" font-size="11" letter-spacing="2">
+    <path d="M1049 308H1100V335" fill="none" stroke="#674448"/>
+    <text x="1105" y="355" text-anchor="end" fill="#a79697">SYSTEMS / CURIOSITY</text>
+    <text x="1152" y="416" text-anchor="end" fill="#6f666b">DESIGNED TO KEEP BUILDING</text>
+  </g>
+</svg>
