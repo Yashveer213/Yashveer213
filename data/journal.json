@@ -1,7 +1,25 @@
 {
   "scope": "Public profile repository commits only",
-  "updated": "2026-09-13T04:35:04.391Z",
+  "updated": "2026-09-13T05:23:27.281487+00:00",
   "entries": [
+    {
+      "sha": "c2ebda1e539cbdd8541219e3bcda1724731bd994",
+      "title": "Set GitHub Pages canonical URL and trigger profile publication",
+      "date": "2026-09-13T05:23:05Z",
+      "url": "https://github.com/Yashveer213/Yashveer213/commit/c2ebda1e539cbdd8541219e3bcda1724731bd994"
+    },
+    {
+      "sha": "cf2dc91be763a8a1ac0f78fce18760e1aca6e490",
+      "title": "Prepare complete profile lab for GitHub Pages in docs",
+      "date": "2026-09-13T05:16:50Z",
+      "url": "https://github.com/Yashveer213/Yashveer213/commit/cf2dc91be763a8a1ac0f78fce18760e1aca6e490"
+    },
+    {
+      "sha": "0bf3e2be1c8a5283cb77dd5463e33b6752b93dc8",
+      "title": "Add interactive lab, 3D robot, project routes and automatic public journal",
+      "date": "2026-09-13T04:40:12Z",
+      "url": "https://github.com/Yashveer213/Yashveer213/commit/0bf3e2be1c8a5283cb77dd5463e33b6752b93dc8"
+    },
     {
       "sha": "24500ac6c251af672ebab356932cc7a11d7d672b",
       "title": "Build animated profile and automated 3D activity chart",
@@ -13,12 +31,6 @@
       "title": "Revamp README with project details and personal info",
       "date": "2026-09-12T13:41:46Z",
       "url": "https://github.com/Yashveer213/Yashveer213/commit/041879b0be669ef5c815836b2a86fe0683e8102e"
-    },
-    {
-      "sha": "d40366f9f55082ef9c530c71440b22401176c246",
-      "title": "Initial commit",
-      "date": "2026-09-12T13:37:15Z",
-      "url": "https://github.com/Yashveer213/Yashveer213/commit/d40366f9f55082ef9c530c71440b22401176c246"
     }
   ]
 }

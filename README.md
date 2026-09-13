@@ -150,9 +150,11 @@ Technologies I've used across my projects:
 Recent human-authored commits to this public profile repository. Updated daily; private product development is not inferred from these entries.
 
 <!-- JOURNAL:START -->
+- **2026-09-13** · [Set GitHub Pages canonical URL and trigger profile publication](https://github.com/Yashveer213/Yashveer213/commit/c2ebda1e539cbdd8541219e3bcda1724731bd994)
+- **2026-09-13** · [Prepare complete profile lab for GitHub Pages in docs](https://github.com/Yashveer213/Yashveer213/commit/cf2dc91be763a8a1ac0f78fce18760e1aca6e490)
+- **2026-09-13** · [Add interactive lab, 3D robot, project routes and automatic public journal](https://github.com/Yashveer213/Yashveer213/commit/0bf3e2be1c8a5283cb77dd5463e33b6752b93dc8)
 - **2026-09-12** · [Build animated profile and automated 3D activity chart](https://github.com/Yashveer213/Yashveer213/commit/24500ac6c251af672ebab356932cc7a11d7d672b)
 - **2026-09-12** · [Revamp README with project details and personal info](https://github.com/Yashveer213/Yashveer213/commit/041879b0be669ef5c815836b2a86fe0683e8102e)
-- **2026-09-12** · [Initial commit](https://github.com/Yashveer213/Yashveer213/commit/d40366f9f55082ef9c530c71440b22401176c246)
 <!-- JOURNAL:END -->
 
 <details>
