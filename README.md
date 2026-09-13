@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-  <a href="https://yashveer-interactive-lab.syashveer981.chatgpt.site">Interactive lab ↗</a> &nbsp; / &nbsp;
+  <a href="https://yashveer213.github.io/Yashveer213/">Interactive lab ↗</a> &nbsp; / &nbsp;
   <a href="#about">About</a> &nbsp; / &nbsp;
   <a href="#selected-work">Selected work</a> &nbsp; / &nbsp;
   <a href="#toolbox">Toolbox</a> &nbsp; / &nbsp;
@@ -20,7 +20,7 @@
 
 
 <p align="center">
-  <a href="https://yashveer-interactive-lab.syashveer981.chatgpt.site"><b>Enter the interactive 3D lab ↗</b></a><br>
+  <a href="https://yashveer213.github.io/Yashveer213/"><b>Enter the interactive 3D lab ↗</b></a><br>
   Orbit the workspace · Select projects · Try browser experiments
 </p>
 
@@ -28,7 +28,7 @@
 
 [**Recruiter** — background & selected work](docs/recruiter.md) &nbsp; · &nbsp; [**Developer** — stack & experiments](docs/developer.md) &nbsp; · &nbsp; [**Collaborator** — goals & ways to connect](docs/collaborator.md)
 
-[**Meet the rotatable 3D robot**](docs/robot.md) · [**Public roadmap**](https://yashveer-interactive-lab.syashveer981.chatgpt.site#roadmap) · [**Build journal**](#build-journal)
+[**Meet the rotatable 3D robot**](docs/robot.md) · [**Public roadmap**](https://yashveer213.github.io/Yashveer213/#roadmap) · [**Build journal**](#build-journal)
 
 ## About
 
@@ -51,7 +51,7 @@ I like working on the parts of software that have to hold up when something goes
 | **IDE conversation recovery** | Design stage | Implement and validate a minimal local event log and restore path. |
 <!-- DASHBOARD:END -->
 
-[Explore the filterable roadmap →](https://yashveer-interactive-lab.syashveer981.chatgpt.site#roadmap) · Stages and next goals are curated project notes; no release dates are implied.
+[Explore the filterable roadmap →](https://yashveer213.github.io/Yashveer213/#roadmap) · Stages and next goals are curated project notes; no release dates are implied.
 
 <details>
 <summary><b>01 / Sentinel — engineering intelligence</b></summary>
@@ -115,17 +115,17 @@ Three working browser experiments. These are **standalone concept demos**, not r
 
 | Unicode studio | Recovery sandbox | Pattern inspector |
 | :---: | :---: | :---: |
-| [![Unicode studio: text to hidden bits to revealed text](assets/demo-unicode.svg)](https://yashveer-interactive-lab.syashveer981.chatgpt.site#demo-unicode) | [![Recovery sandbox: append, lose view, restore](assets/demo-recovery.svg)](https://yashveer-interactive-lab.syashveer981.chatgpt.site#demo-recovery) | [![Pattern inspector: code to rules to findings](assets/demo-inspector.svg)](https://yashveer-interactive-lab.syashveer981.chatgpt.site#demo-inspector) |
+| [![Unicode studio: text to hidden bits to revealed text](assets/demo-unicode.svg)](https://yashveer213.github.io/Yashveer213/#demo-unicode) | [![Recovery sandbox: append, lose view, restore](assets/demo-recovery.svg)](https://yashveer213.github.io/Yashveer213/#demo-recovery) | [![Pattern inspector: code to rules to findings](assets/demo-inspector.svg)](https://yashveer213.github.io/Yashveer213/#demo-inspector) |
 | Hide & reveal text. No encryption. | Replay an in-memory event log. | Run four transparent code checks. |
 
-[Open all playgrounds →](https://yashveer-interactive-lab.syashveer981.chatgpt.site#playgrounds)
+[Open all playgrounds →](https://yashveer213.github.io/Yashveer213/#playgrounds)
 
 
 ## Toolbox
 
 **Click a technology to see its projects in the lab:**
 
-[Python](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=Python#projects) · [FastAPI](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=FastAPI#projects) · [React](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=React#projects) · [Ollama](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=Ollama#projects) · [Docker](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=Docker#projects) · [Supabase](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=Supabase#projects) · [n8n](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=n8n#projects)
+[Python](https://yashveer213.github.io/Yashveer213/?tech=Python#projects) · [FastAPI](https://yashveer213.github.io/Yashveer213/?tech=FastAPI#projects) · [React](https://yashveer213.github.io/Yashveer213/?tech=React#projects) · [Ollama](https://yashveer213.github.io/Yashveer213/?tech=Ollama#projects) · [Docker](https://yashveer213.github.io/Yashveer213/?tech=Docker#projects) · [Supabase](https://yashveer213.github.io/Yashveer213/?tech=Supabase#projects) · [n8n](https://yashveer213.github.io/Yashveer213/?tech=n8n#projects)
 
 Technologies I've used across my projects:
 

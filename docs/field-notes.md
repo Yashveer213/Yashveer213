@@ -11,6 +11,6 @@ A few questions behind the projects:
 
 The interesting work often starts where the happy path ends.
 
-[Back to the lab](https://yashveer-interactive-lab.syashveer981.chatgpt.site) · [Meet the robot](robot.md)
+[Back to the lab](https://yashveer213.github.io/Yashveer213/) · [Meet the robot](robot.md)
 
 [Back to the profile](../README.md)

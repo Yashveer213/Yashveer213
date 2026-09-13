@@ -2,7 +2,7 @@
 
 This directory contains only the public GitHub profile companion: 3D workspace, audience routes, project descriptions, technology filters, concept playgrounds, roadmap, journal, and field notes. It does not contain or deploy the actual Sentinel, Oops!, or other project applications.
 
-## Activate once
+## Publishing configuration
 
 Open https://github.com/Yashveer213/Yashveer213/settings/pages and select:
 
@@ -11,9 +11,9 @@ Open https://github.com/Yashveer213/Yashveer213/settings/pages and select:
 - Folder: **/docs**
 - **Save**
 
-Expected URL after successful publication: https://yashveer213.github.io/Yashveer213/
+Live profile lab: https://yashveer213.github.io/Yashveer213/
 
-The profile README remains at https://github.com/Yashveer213. Its currently working external links will be switched after the Pages deployment is verified.
+The profile README remains at https://github.com/Yashveer213. Its external profile links point to the GitHub Pages lab.
 
 ## Routes
 

@@ -69,7 +69,7 @@ The workflow has **not** been run inside your repository. Your live contribution
 
 ## Interactive profile upgrades
 
-Public lab: https://yashveer-interactive-lab.syashveer981.chatgpt.site
+Public lab: https://yashveer213.github.io/Yashveer213/
 
 Edit `data/profile.json` to curate stages and next goals. The daily workflow refreshes the README dashboard and `data/journal.json` from human-authored commits in this public profile repository only. It does not access private project source. The lab fetches those public JSON files with a bundled fallback.
 
