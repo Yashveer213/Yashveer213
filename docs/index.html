@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0c0e12">
+  <meta name="description" content="Explore Yashveer Singh’s interactive engineering lab: projects, browser playgrounds, public roadmap, and build journal.">
+  <title>Yashveer Singh — Interactive Lab</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c0e12'/%3E%3Cpath d='m8 8 8 9 8-9M16 17v8' fill='none' stroke='%23f58f7c' stroke-width='3'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#content">Skip to content</a>
+  <header class="topbar">
+    <a class="identity" href="#lab"><span class="monogram">YS</span><span>Yashveer Singh<small>AETHERION LABS / PERSONAL WORKSPACE</small></span></a>
+    <nav aria-label="Main navigation"><a href="#lab">Lab</a><a href="#projects">Projects</a><a href="#playgrounds">Playgrounds</a><a href="#roadmap">Roadmap</a><a href="#journal">Journal</a></nav>
+    <a class="external" href="https://github.com/Yashveer213">GitHub ↗</a>
+  </header>
+  <main id="content" tabindex="-1"><noscript><p>This lab needs JavaScript for its projects and playgrounds. <a href="https://github.com/Yashveer213">Read the GitHub profile</a>.</p></noscript>
+    <section id="lab" class="lab-section">
+      <div class="lab-heading"><div><p class="eyebrow">01 / EXPLORE THE WORKSPACE</p><h1>Built from curiosity.</h1></div><div class="audience" role="group" aria-label="Choose your route"><button data-audience="explorer" aria-pressed="true">Explorer</button><button data-audience="recruiter" aria-pressed="false">Recruiter</button><button data-audience="developer" aria-pressed="false">Developer</button><button data-audience="collaborator" aria-pressed="false">Collaborator</button></div></div>
+      <div class="lab-grid">
+        <div class="scene-wrap"><canvas id="scene" tabindex="0" aria-label="Interactive 3D lab. Drag or use arrow keys to orbit. Use plus or minus to zoom. Select a project using the buttons below."></canvas><div class="scene-tag">AETHERION / LAB 01</div><div class="scene-help">Drag to orbit · Select a station</div><div class="scene-controls"><button id="zoom-in" aria-label="Zoom in">+</button><button id="zoom-out" aria-label="Zoom out">−</button><button id="reset-view">Reset view</button></div><p id="scene-fallback" hidden>The 3D view is unavailable. All projects and demos remain accessible below.</p></div>
+        <aside class="station-detail" aria-live="polite"><p class="eyebrow" id="station-number">STATION 01</p><span class="status" id="station-stage">In development</span><h2 id="station-name">Sentinel</h2><p id="station-summary">Engineering intelligence through software analysis and AI-assisted reasoning.</p><div id="station-tech" class="chips"></div><div class="station-actions"><a class="primary" id="station-link" href="#project-sentinel">Explore project</a><a class="secondary" href="#playgrounds">Try a playground</a></div><p class="station-foot" id="route-note">I'm Yashveer, a CSE student exploring AI systems, backend engineering, and developer tools.</p></aside>
+      </div>
+      <div class="station-tabs" role="group" aria-label="Choose a project station"><button data-project="sentinel" aria-pressed="true"><span>01</span>Sentinel</button><button data-project="oops" aria-pressed="false"><span>02</span>Oops!</button><button data-project="aifi" aria-pressed="false"><span>03</span>AI-Fi</button><button data-project="recovery" aria-pressed="false"><span>04</span>Recovery</button></div>
+      <div class="principle"><p>Build. Break. Understand. Improve. Repeat.</p><button id="secret-switch" aria-label="Inspect the small lab mark">[ _ ]</button></div>
+    </section>
+    <section id="projects"><div class="section-heading"><div><p class="eyebrow">02 / SELECTED WORK</p><h2>Inside the projects.</h2></div><p>Some repositories are private.<br>These are public descriptions and design goals.</p></div><div id="project-list" class="project-grid"></div></section>
+    <section id="toolbox"><div class="section-heading"><div><p class="eyebrow">03 / FOLLOW THE TECHNOLOGY</p><h2>Tools, in context.</h2></div><p>Select a tool to see where I use it.</p></div><div id="tech-filters" class="tech-filters" role="group" aria-label="Filter projects by technology"></div><p id="tech-result" aria-live="polite">All projects are shown above.</p></section>
+    <section id="playgrounds"><div class="section-heading"><div><p class="eyebrow">04 / TRY THE IDEAS</p><h2>Small experiments. Real interactions.</h2></div><p>Standalone concept demos made for this lab.<br>They are not recordings of the full products.</p></div><div id="demo-gallery" class="demo-gallery"></div><div id="playground-shell"></div></section>
+    <section id="roadmap"><div class="section-heading"><div><p class="eyebrow">05 / PUBLIC ROADMAP</p><h2>What comes next.</h2></div><label class="filter-label">Project<select id="roadmap-filter"><option value="all">All projects</option><option value="sentinel">Sentinel</option><option value="oops">Oops!</option><option value="aifi">AI-Fi</option><option value="recovery">Recovery</option><option value="profile">Profile & lab</option></select></label></div><p class="muted">A public view of planned work. No launch dates or completion percentages are implied.</p><div id="roadmap-board" class="roadmap-board"></div><p class="data-note" id="data-note">Loading the public project notes…</p></section>
+    <section id="journal"><div class="section-heading"><div><p class="eyebrow">06 / THE BUILD JOURNAL</p><h2>Progress with a paper trail.</h2></div><a href="https://github.com/Yashveer213/Yashveer213/commits/main">View profile history ↗</a></div><ol id="journal-list" class="journal-list"></ol></section>
+    <footer><p><strong>Yashveer Singh</strong><br>B.Tech CSE · AI/ML · Amity University Chhattisgarh</p><div><a href="https://www.linkedin.com/in/yashveer-singh2103/">LinkedIn ↗</a><a href="https://github.com/Yashveer213">GitHub ↗</a></div><p class="muted">Build with intent.</p></footer>
+  </main>
+  <dialog id="easter-egg"><button id="close-secret" class="close" aria-label="Close hidden note">×</button><p class="eyebrow">YOU FOUND THE QUIET CORNER</p><h2>The part nobody sees.</h2><p>Good work includes the failed experiments, the rewritten modules, and the questions you finally learn to ask.</p><p class="secret-quote">Build. Break. Understand.<br>Improve. Repeat.</p><a href="./field-notes.html">Read the field notes ↗</a></dialog>
+</body></html>
