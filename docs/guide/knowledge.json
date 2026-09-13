@@ -1,0 +1,387 @@
+{
+  "version": 1,
+  "name": "Orbit",
+  "reviewed": "2026-09-13",
+  "scope": "Approved public profile information only. No model or private conversation access.",
+  "contact": {
+    "linkedin": "https://www.linkedin.com/in/yashveer-singh2103/",
+    "github": "https://github.com/Yashveer213"
+  },
+  "projects": [
+    {
+      "id": "sentinel",
+      "name": "Sentinel",
+      "stage": "In development",
+      "summary": "Engineering intelligence through software analysis and AI-assisted reasoning.",
+      "description": "The flagship project being built under Aetherion Labs. Its direction combines static analysis with LLM-assisted reasoning in a modular platform, with a hybrid desktop/cloud approach.",
+      "stack": [
+        "Python",
+        "FastAPI",
+        "React",
+        "Ollama",
+        "Docker"
+      ],
+      "focus": "Reliable analysis workflows, provider abstraction, and explanations developers can inspect.",
+      "next": "Continue implementing and validating the analysis workflows.",
+      "scope": "The broader engineering intelligence capabilities remain a roadmap. A public stable release is not claimed.",
+      "links": [],
+      "aliases": [
+        "sentinel"
+      ],
+      "demo": {
+        "id": "inspector",
+        "label": "Open pattern inspector",
+        "explanation": "The pattern inspector is a standalone concept demo with four deterministic code checks. It is not the Sentinel engine or a complete security audit."
+      }
+    },
+    {
+      "id": "oops",
+      "name": "Oops!",
+      "stage": "Built; evolving",
+      "summary": "Browser-side encryption meets zero-width Unicode steganography.",
+      "description": "A communication project exploring encrypted messages carried inside ordinary-looking text, with encryption and decryption in the browser.",
+      "stack": [
+        "React",
+        "JavaScript",
+        "Tailwind CSS",
+        "Web Crypto",
+        "Argon2id",
+        "Supabase"
+      ],
+      "focus": "Key derivation, message hiding, and understandable privacy-focused interactions.",
+      "next": "Document a public walkthrough of the existing message flow.",
+      "scope": "The lab’s Unicode playground demonstrates the hiding technique independently; it is not the full encrypted Oops! application.",
+      "links": [],
+      "aliases": [
+        "oops"
+      ],
+      "demo": {
+        "id": "unicode",
+        "label": "Open Unicode studio",
+        "explanation": "The Unicode studio is a standalone hiding-and-revealing experiment. It does not encrypt messages and is not the full Oops! application."
+      }
+    },
+    {
+      "id": "aifi",
+      "name": "AI-Fi",
+      "stage": "Experimental",
+      "summary": "Connecting security signals to controlled response workflows.",
+      "description": "An experimental AI firewall project exploring threat orchestration, response automation, and failover through n8n workflows.",
+      "stack": [
+        "n8n",
+        "JavaScript",
+        "Automation"
+      ],
+      "focus": "Traceable response steps and controlled automation.",
+      "next": "Continue exploring and validating response and failover scenarios.",
+      "scope": "Experimental work, with no production security guarantee.",
+      "links": [],
+      "aliases": [
+        "ai fi",
+        "aifi",
+        "firewall"
+      ],
+      "demo": null
+    },
+    {
+      "id": "recovery",
+      "name": "IDE conversation recovery",
+      "stage": "Design stage",
+      "summary": "Keep project conversations intact when an IDE loses its local state.",
+      "description": "A local-first recovery design motivated by lost IDE chats. It aims to preserve project conversations and execution history independently of the IDE’s own storage.",
+      "stack": [
+        "Event sourcing",
+        "Local-first",
+        "Storage design"
+      ],
+      "focus": "Immutable events, crash-safe writes, checkpoints, branching, and optional replication that rejects empty or corrupt state.",
+      "next": "Implement and validate a minimal local event log and restore path.",
+      "scope": "These are design goals. The lab contains an in-memory simulation of the idea, not a completed backup product.",
+      "links": [],
+      "aliases": [
+        "recovery",
+        "ide conversation recovery",
+        "ide chat recovery",
+        "antigravity"
+      ],
+      "demo": {
+        "id": "recovery",
+        "label": "Open recovery sandbox",
+        "explanation": "The recovery sandbox demonstrates replaying an in-memory event log. Reloading clears it; this is not a completed backup product."
+      }
+    }
+  ],
+  "answers": [
+    {
+      "id": "about",
+      "questions": [
+        "Who is Yashveer?"
+      ],
+      "patterns": [
+        "\\b(who is|about|background|introduce|tell me about) (yashveer|yash|him)\\b"
+      ],
+      "answer": "Yashveer Singh is a computer science student focused on AI/ML, backend engineering, and developer tools. He is building Aetherion Labs, starting with Sentinel, an engineering intelligence platform in development.",
+      "links": [
+        {
+          "label": "Explore his work",
+          "href": "#projects"
+        }
+      ],
+      "suggestions": [
+        "Where does he study?",
+        "What is Sentinel?",
+        "What are his skills?"
+      ]
+    },
+    {
+      "id": "education",
+      "questions": [
+        "Where does he study?"
+      ],
+      "patterns": [
+        "\\b(study|studies|studying|education|college|university|degree)\\b"
+      ],
+      "answer": "He is studying B.Tech CSE with an AI/ML specialization at Amity University Chhattisgarh.",
+      "links": [
+        {
+          "label": "Public profile",
+          "href": "https://github.com/Yashveer213"
+        }
+      ],
+      "suggestions": [
+        "What are his skills?",
+        "What is Sentinel?"
+      ]
+    },
+    {
+      "id": "contact",
+      "questions": [
+        "How can I contact him?"
+      ],
+      "patterns": [
+        "\\b(contact|connect|linkedin|reach|collaborate|collaboration|hire|hiring|recruiter|internship|available for work)\\b"
+      ],
+      "answer": "You can connect with Yashveer on LinkedIn to discuss AI systems, developer tools, or collaboration. Availability and role preferences should be confirmed directly with him.",
+      "links": [
+        {
+          "label": "Connect on LinkedIn",
+          "href": "https://www.linkedin.com/in/yashveer-singh2103/"
+        }
+      ],
+      "suggestions": [
+        "Who is Yashveer?",
+        "What are his skills?"
+      ]
+    },
+    {
+      "id": "private",
+      "questions": [
+        "Why are some repositories private?"
+      ],
+      "patterns": [
+        "\\b(private|repositories|repository|repos)\\b"
+      ],
+      "answer": "Some project repositories are private. The profile shares their purpose, technical direction, and clearly labeled concept demos. Private implementation details are outside this guide’s knowledge.",
+      "links": [
+        {
+          "label": "View public work",
+          "href": "#projects"
+        }
+      ],
+      "suggestions": [
+        "Which projects can I try?"
+      ]
+    },
+    {
+      "id": "aetherion",
+      "questions": [
+        "What is Aetherion Labs?"
+      ],
+      "patterns": [
+        "\\baetherion\\b"
+      ],
+      "answer": "Aetherion Labs is the venture Yashveer is building, starting with Sentinel as its flagship project. This profile does not claim a funding round, customer base, or production release.",
+      "links": [
+        {
+          "label": "Explore Sentinel",
+          "href": "#project-sentinel",
+          "project": "sentinel"
+        }
+      ],
+      "suggestions": [
+        "What is Sentinel?"
+      ]
+    },
+    {
+      "id": "anvas",
+      "questions": [
+        "What is ANVAS?",
+        "What is Kaizen?"
+      ],
+      "patterns": [
+        "\\b(anvas|kaizen)\\b"
+      ],
+      "answer": "ANVAS is Sentinel’s integrated AI layer. Kaizen is the reasoning and evaluation engine being developed with a collaborator. They are parts of the Sentinel system, not separate public demos here.",
+      "links": [
+        {
+          "label": "Explore Sentinel",
+          "href": "#project-sentinel",
+          "project": "sentinel"
+        }
+      ],
+      "suggestions": [
+        "What is Sentinel?"
+      ]
+    },
+    {
+      "id": "demos",
+      "questions": [
+        "Which projects can I try?",
+        "Show me the demos"
+      ],
+      "patterns": [
+        "\\b(demos|demo|playgrounds|playground|try)\\b"
+      ],
+      "answer": "You can try three standalone concept demos: Unicode studio, recovery sandbox, and pattern inspector. They demonstrate ideas independently and are not recordings of the complete products.",
+      "links": [
+        {
+          "label": "Unicode studio",
+          "href": "#demo-unicode"
+        },
+        {
+          "label": "Recovery sandbox",
+          "href": "#demo-recovery"
+        },
+        {
+          "label": "Pattern inspector",
+          "href": "#demo-inspector"
+        }
+      ],
+      "suggestions": [
+        "What is Oops!?",
+        "What is Sentinel?"
+      ]
+    },
+    {
+      "id": "roadmap",
+      "questions": [
+        "What is next on the roadmap?"
+      ],
+      "patterns": [
+        "\\b(roadmap|next|planned|plans)\\b"
+      ],
+      "answer": "The public roadmap includes continued analysis work for Sentinel, iteration on Oops!, AI-Fi experiments, and a first local log-and-restore prototype for conversation recovery. Goals have no promised launch dates.",
+      "links": [
+        {
+          "label": "Open roadmap",
+          "href": "#roadmap"
+        }
+      ],
+      "suggestions": [
+        "What stage is Sentinel at?",
+        "What stage is recovery at?"
+      ]
+    },
+    {
+      "id": "journal",
+      "questions": [
+        "Show me the build journal"
+      ],
+      "patterns": [
+        "\\b(journal|commits|progress|activity)\\b"
+      ],
+      "answer": "The build journal links to human-authored commits in the public profile repository. It refreshes daily and does not infer progress inside private project repositories.",
+      "links": [
+        {
+          "label": "Open build journal",
+          "href": "#journal"
+        }
+      ],
+      "suggestions": [
+        "What is next on the roadmap?"
+      ]
+    },
+    {
+      "id": "python",
+      "questions": [
+        "Which projects use Python?"
+      ],
+      "patterns": [
+        "\\bpython\\b"
+      ],
+      "answer": "Python is listed in Sentinel’s stack alongside FastAPI, React, Ollama, and Docker.",
+      "links": [
+        {
+          "label": "Explore Sentinel",
+          "href": "#project-sentinel",
+          "project": "sentinel"
+        }
+      ],
+      "suggestions": [
+        "What is Sentinel?"
+      ]
+    },
+    {
+      "id": "react",
+      "questions": [
+        "Which projects use React?"
+      ],
+      "patterns": [
+        "\\breact\\b"
+      ],
+      "answer": "React appears in the public stacks for Sentinel and Oops!.",
+      "links": [
+        {
+          "label": "See project stacks",
+          "href": "#projects"
+        }
+      ],
+      "suggestions": [
+        "What is Sentinel?",
+        "What is Oops!?"
+      ]
+    },
+    {
+      "id": "skills",
+      "questions": [
+        "What are his skills?"
+      ],
+      "patterns": [
+        "\\b(skills|skill|tech stack|technologies|languages|toolbox)\\b"
+      ],
+      "answer": "His public projects use Python, FastAPI, React, JavaScript, Ollama, Docker, Supabase, and n8n, among other tools. His interests include AI workflows, backend systems, software analysis, and local-first recovery.",
+      "links": [
+        {
+          "label": "Explore tools by project",
+          "href": "#toolbox"
+        }
+      ],
+      "suggestions": [
+        "Which projects use Python?",
+        "Which projects use React?"
+      ]
+    },
+    {
+      "id": "projects",
+      "questions": [
+        "What has he built?",
+        "What are his projects?"
+      ],
+      "patterns": [
+        "\\b(projects|work|built|building)\\b"
+      ],
+      "answer": "The selected work includes Sentinel (in development), Oops! (built; evolving), AI-Fi (experimental), and IDE conversation recovery (design stage). These stages matter: the profile does not present every project as a finished product.",
+      "links": [
+        {
+          "label": "Explore selected work",
+          "href": "#projects"
+        }
+      ],
+      "suggestions": [
+        "What is Sentinel?",
+        "What is Oops!?",
+        "What is AI-Fi?"
+      ]
+    }
+  ]
+}

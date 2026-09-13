@@ -17,7 +17,20 @@ function renderData(){const tags=['All',...new Set(data.projects.flatMap(p=>p.st
 async function init(){
  try{data=await fetchJSON('./data/profile.json');if(!validProfile(data))throw Error('Invalid project data');}catch{$('#data-note').textContent='Project data could not load. Reload the page to try again.';return;}
  const params=new URLSearchParams(location.search);audience=Object.hasOwn(routes,params.get('audience'))?params.get('audience'):'explorer';const wanted=params.get('tech');if(data.projects.some(p=>p.stack.includes(wanted)))tech=wanted;
- renderData();try{scene=startScene($('#scene'),id=>{selectProject(id);setAudience(audience)});}catch{scene=null;}if(!scene)$('#scene-fallback').hidden=false;
+ renderData();
+ document.addEventListener('profile-guide:navigate',event=>{
+  const {href,project}=event.detail||{};
+  const allowed=['#lab','#projects','#toolbox','#playgrounds','#roadmap','#journal','#demo-unicode','#demo-recovery','#demo-inspector',...data.projects.map(p=>'#project-'+p.id)];
+  if(!allowed.includes(href))return;
+  event.preventDefault();
+  if(project&&data.projects.some(p=>p.id===project)){filterTech('All');selectProject(project);setAudience(audience);}
+  else if(href==='#projects')filterTech('All');
+  if(href.startsWith('#demo-'))showDemo(href.slice(6));
+  history.replaceState(null,'',href);
+  const target=document.querySelector(href);
+  if(target){target.scrollIntoView({behavior:'auto',block:'start'});target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}
+ });
+ try{scene=startScene($('#scene'),id=>{selectProject(id);setAudience(audience)});}catch{scene=null;}if(!scene)$('#scene-fallback').hidden=false;
  $$('[data-project]').forEach(b=>b.onclick=()=>{filterTech('All');selectProject(b.dataset.project);setAudience(audience)});$$('[data-audience]').forEach(b=>b.onclick=()=>setAudience(b.dataset.audience));$('#zoom-in').onclick=()=>scene?.zoom(.1);$('#zoom-out').onclick=()=>scene?.zoom(-.1);$('#reset-view').onclick=()=>scene?.reset();$('#roadmap-filter').onchange=renderRoadmap;
  $('#demo-gallery').innerHTML=demoInfo.map((d,i)=>`<button class="demo-card" data-demo="${d.id}" aria-pressed="${i===0}"><span class="eyebrow">0${i+1} / CONCEPT DEMO</span><span class="demo-visual" aria-hidden="true">${d.visual}</span><h3>${d.name}</h3><p>${d.description}</p><span>Open playground ↗</span></button>`).join('');$$('[data-demo]').forEach(b=>b.onclick=()=>{history.replaceState(null,'',`#demo-${b.dataset.demo}`);showDemo(b.dataset.demo,true)});
  function fromHash(){const id=location.hash.replace('#demo-','');if(demoInfo.some(d=>d.id===id))showDemo(id,true);}showDemo('unicode');fromHash();addEventListener('hashchange',fromHash);
@@ -28,3 +41,4 @@ async function init(){
  const context=document.modelContext;if(context?.registerTool){const lifecycle=new AbortController();addEventListener('pagehide',()=>lifecycle.abort(),{once:true});for(const tool of [{name:'navigate_project',title:'Select project station',description:'Select a project in the visible 3D lab.',inputSchema:{type:'object',properties:{id:{type:'string',enum:data.projects.map(p=>p.id)}},required:['id'],additionalProperties:false},execute(input){if(!input||typeof input.id!=='string'||!data.projects.some(p=>p.id===input.id)||Object.keys(input).some(k=>k!=='id'))throw Error('A valid project id is required');filterTech('All');const result=selectProject(input.id);setAudience(audience);$('#lab').scrollIntoView();return result;}},{name:'open_playground',title:'Open concept playground',description:'Open a local concept playground. Does not run code or submit data.',inputSchema:{type:'object',properties:{id:{type:'string',enum:demoInfo.map(d=>d.id)}},required:['id'],additionalProperties:false},execute(input){if(!input||typeof input.id!=='string'||Object.keys(input).some(k=>k!=='id'))throw Error('A playground id is required');return showDemo(input.id,true);}}]){try{Promise.resolve(context.registerTool({...tool,annotations:{readOnlyHint:false,untrustedContentHint:false}},{signal:lifecycle.signal})).catch(()=>{});}catch{}}}
 }
 init();
+
