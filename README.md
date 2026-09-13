@@ -8,6 +8,7 @@
 </p>
 
 <p align="center">
+  <a href="https://yashveer-interactive-lab.syashveer981.chatgpt.site">Interactive lab ↗</a> &nbsp; / &nbsp;
   <a href="#about">About</a> &nbsp; / &nbsp;
   <a href="#selected-work">Selected work</a> &nbsp; / &nbsp;
   <a href="#toolbox">Toolbox</a> &nbsp; / &nbsp;
@@ -16,6 +17,18 @@
 </p>
 
 <p align="center"><b>Build. Break. Understand. Improve. Repeat.</b></p>
+
+
+<p align="center">
+  <a href="https://yashveer-interactive-lab.syashveer981.chatgpt.site"><b>Enter the interactive 3D lab ↗</b></a><br>
+  Orbit the workspace · Select projects · Try browser experiments
+</p>
+
+### Choose your route
+
+[**Recruiter** — background & selected work](docs/recruiter.md) &nbsp; · &nbsp; [**Developer** — stack & experiments](docs/developer.md) &nbsp; · &nbsp; [**Collaborator** — goals & ways to connect](docs/collaborator.md)
+
+[**Meet the rotatable 3D robot**](docs/robot.md) · [**Public roadmap**](https://yashveer-interactive-lab.syashveer981.chatgpt.site#roadmap) · [**Build journal**](#build-journal)
 
 ## About
 
@@ -29,12 +42,16 @@ I like working on the parts of software that have to hold up when something goes
 
 ## Selected work
 
-| Project | The problem I'm working on | Stage |
+<!-- DASHBOARD:START -->
+| Project | Stage | Next goal |
 | :--- | :--- | :--- |
-| **Sentinel** · Aetherion Labs | Helping developers understand code quality, risks, and engineering decisions through software analysis and AI-assisted reasoning. | In development |
-| **Oops!** | Combining browser-side message encryption with Unicode steganography. | Built; evolving |
-| **AI-Fi** | Connecting threat signals, response workflows, and firewall automation. | Experimental |
-| **IDE conversation recovery** | Preserving project chats and execution history when an IDE loses its local state. | Design stage |
+| **Sentinel** | In development | Continue implementing and validating the analysis workflows. |
+| **Oops!** | Built; evolving | Document a public walkthrough of the existing message flow. |
+| **AI-Fi** | Experimental | Continue exploring and validating response and failover scenarios. |
+| **IDE conversation recovery** | Design stage | Implement and validate a minimal local event log and restore path. |
+<!-- DASHBOARD:END -->
+
+[Explore the filterable roadmap →](https://yashveer-interactive-lab.syashveer981.chatgpt.site#roadmap) · Stages and next goals are curated project notes; no release dates are implied.
 
 <details>
 <summary><b>01 / Sentinel — engineering intelligence</b></summary>
@@ -92,10 +109,23 @@ A local-first recovery design motivated by lost IDE conversations. The goal is t
 
 **Some project repositories are private.** This profile shares their purpose and technical direction. Public walkthroughs and demos will be linked as they become available.
 
-<!-- Add verified public demo/video links beside the relevant projects. Do not link visitors to private repositories. -->
-<!-- Portfolio: add your current public URL to the navigation once confirmed. -->
+## Try the ideas
+
+Three working browser experiments. These are **standalone concept demos**, not recordings of Sentinel or Oops!.
+
+| Unicode studio | Recovery sandbox | Pattern inspector |
+| :---: | :---: | :---: |
+| [![Unicode studio: text to hidden bits to revealed text](assets/demo-unicode.svg)](https://yashveer-interactive-lab.syashveer981.chatgpt.site#demo-unicode) | [![Recovery sandbox: append, lose view, restore](assets/demo-recovery.svg)](https://yashveer-interactive-lab.syashveer981.chatgpt.site#demo-recovery) | [![Pattern inspector: code to rules to findings](assets/demo-inspector.svg)](https://yashveer-interactive-lab.syashveer981.chatgpt.site#demo-inspector) |
+| Hide & reveal text. No encryption. | Replay an in-memory event log. | Run four transparent code checks. |
+
+[Open all playgrounds →](https://yashveer-interactive-lab.syashveer981.chatgpt.site#playgrounds)
+
 
 ## Toolbox
+
+**Click a technology to see its projects in the lab:**
+
+[Python](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=Python#projects) · [FastAPI](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=FastAPI#projects) · [React](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=React#projects) · [Ollama](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=Ollama#projects) · [Docker](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=Docker#projects) · [Supabase](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=Supabase#projects) · [n8n](https://yashveer-interactive-lab.syashveer981.chatgpt.site?tech=n8n#projects)
 
 Technologies I've used across my projects:
 
@@ -114,6 +144,23 @@ Technologies I've used across my projects:
 </a>
 
 <sub>Scheduled daily refresh · Last successful update appears in the chart · Private and local work may not be represented.</sub>
+
+## Build journal
+
+Recent human-authored commits to this public profile repository. Updated daily; private product development is not inferred from these entries.
+
+<!-- JOURNAL:START -->
+- **2026-09-12** · [Build animated profile and automated 3D activity chart](https://github.com/Yashveer213/Yashveer213/commit/24500ac6c251af672ebab356932cc7a11d7d672b)
+- **2026-09-12** · [Revamp README with project details and personal info](https://github.com/Yashveer213/Yashveer213/commit/041879b0be669ef5c815836b2a86fe0683e8102e)
+- **2026-09-12** · [Initial commit](https://github.com/Yashveer213/Yashveer213/commit/d40366f9f55082ef9c530c71440b22401176c246)
+<!-- JOURNAL:END -->
+
+<details>
+<summary>A small note for the curious…</summary>
+
+You found the quiet corner. [Read the field notes](docs/field-notes.md), or find the small lab mark in the interactive workspace.
+
+</details>
 
 ---
 

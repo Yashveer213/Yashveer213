@@ -1,10 +1,13 @@
-name: Refresh profile activity
+name: Refresh profile activity and journal
 
 on:
   push:
     branches: [main]
     paths:
       - scripts/update_activity.py
+      - scripts/update_profile.py
+      - data/profile.json
+      - README.md
       - .github/workflows/profile-activity.yml
   workflow_dispatch:
   schedule:
@@ -33,13 +36,17 @@ jobs:
           PROFILE_USERNAME: ${{ github.repository_owner }}
         run: python3 scripts/update_activity.py
 
+      - name: Refresh public journal and project dashboard
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/update_profile.py
       - name: Save the refreshed artwork
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- assets/activity.svg
+          git add -- assets/activity.svg README.md data/journal.json
           if git diff --cached --quiet; then
             exit 0
           fi
-          git commit -m 'Refresh profile activity [skip ci]'
+          git commit -m 'Refresh profile activity and journal [skip ci]'
           git push
