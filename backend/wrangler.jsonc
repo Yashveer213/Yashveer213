@@ -1,0 +1,11 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "yashveer-orbit",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-13",
+  "ai": { "binding": "AI" },
+  "durable_objects": { "bindings": [{ "name": "ORBIT_QUOTA", "class_name": "OrbitQuota" }] },
+  "migrations": [{ "tag": "v1", "new_sqlite_classes": ["OrbitQuota"] }],
+  "vars": { "MAX_DAILY_REQUESTS": "40", "MAX_IP_DAILY": "10", "MAX_IP_MINUTE": "3" },
+  "observability": { "enabled": false }
+}

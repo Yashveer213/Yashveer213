@@ -1,41 +1,28 @@
-// Deterministic retrieval from approved public notes. No model, remote inference or code execution.
-export const normalize = value => String(value).normalize('NFKC').toLowerCase().replace(/[’']/g,'').replace(/[^\p{L}\p{N}+#]+/gu,' ').trim();
-const has=(text,pattern)=>pattern.test(text);
-const actions=(...items)=>items;
-const source='https://github.com/Yashveer213/Yashveer213/blob/main/docs/guide/knowledge.json';
-export function answerQuestion(question,knowledge,context={}) {
- if(typeof question!=='string'||!question.trim()||question.length>300)throw new Error('Ask a question between 1 and 300 characters.');
- const q=normalize(question),audience=['recruiter','developer','collaborator'].includes(context.audience)?context.audience:'explorer';
- const reply=(text,links=[],suggestions=[],topic=null,matched=true)=>({text,links,suggestions,topic,matched,source});
- const unknown=()=>reply('I don’t have an approved public answer to that. I can explain Yashveer’s background, project purpose, stack, current stage, or the lab demos. For anything more specific, ask him directly.',[{label:'Connect on LinkedIn',href:knowledge.contact.linkedin}],['Who is Yashveer?','What is Sentinel?','Which projects can I try?'],null,false);
- if(has(q,/\b(password|token|api key|secret key|private code|source code|system prompt|ignore (all|previous)|salary|revenue|funding|valuation|clients|customers|age|birthday|girlfriend|family|address|phone|marks|backlogs|married|marriage|personal life|private life|relationship|religion|caste)\b/))return unknown();
- if(has(q,/^(hi|hello|hey|namaste|bhai|hi orbit|hello orbit)$/))return reply('Hey! I’m Orbit, Yashveer’s curated profile guide. I can help you explore his public work and open the right part of the lab.',[],['Who is Yashveer?','What is Sentinel?','Show me the demos']);
- if(has(q,/\b(who are you|your name|are you ai|chatgpt|how do you work|what can you do|are you a bot)\b/))return reply('I’m Orbit, an animated guide with curated answers and simple question matching. I don’t use an AI model, access private repositories, or send your questions to a server. I can get unfamiliar wording wrong; try a suggested question if needed.',[],['Who is Yashveer?','Which projects can I try?']);
- if(has(q,/^(thanks|thank you|thankyou|cheers|bye)$/))return reply('You’re welcome. Take a look around—there are a few ideas here you can try yourself.',[{label:'Explore playgrounds',href:'#playgrounds'}],['What is next on the roadmap?']);
- const explicit=knowledge.projects.filter(p=>p.aliases.some(alias=>new RegExp('(?:^| )'+alias+'(?: |$)').test(q)));
- if(explicit.length>1)return reply('These projects solve different problems. '+explicit.map(p=>`${p.name}: ${p.summary}`).join(' '),explicit.map(p=>({label:p.name,href:'#project-'+p.id,project:p.id})),['Which projects can I try?']);
- let project=explicit[0];
- const followUp=has(q,/^(and |what about |its |what is its |what does it |is it |does it |can i try it|show (it|the demo)|which (tools|stack)|what (stack|stage)|why (this|that) stack)/);
- if(!project&&(followUp||has(q,/\b(it|its|that project)\b/)))project=knowledge.projects.find(p=>p.id===context.topic);
- if(project){
-  const p=project,view={label:'Explore '+p.name,href:'#project-'+p.id,project:p.id},road={label:'View roadmap',href:'#roadmap'};
-  const nextQs=[`What stack does ${p.name} use?`,`What stage is ${p.name} at?`,`Can I try ${p.name}?`];
-  if(has(q,/\b(why|reason|choose|chosen|chose)\b/)&&has(q,/\b(stack|python|react|fastapi|tools|technolog|ollama|supabase)\b/))return reply('The public notes list the stack, but don’t document every technology-selection decision. '+p.name+' uses '+p.stack.join(', ')+'.',[view],nextQs,p.id);
-  if(has(q,/\b(stack|technologies|technology|tools|built with|written in|language|framework|use python|use react)\b/))return reply(p.name+' uses '+p.stack.join(', ')+'. '+(audience==='developer'?p.focus:''),[view],nextQs,p.id);
-  if(has(q,/\b(stage|status|finished|complete|completed|ready|production|released|release|launched|launch|live|available|when|deadline)\b/))return reply(p.name+' is '+p.stage.toLowerCase()+'. '+p.scope+' No release date is published here.',[view,road],[`What is ${p.name}?`,`Can I try ${p.name}?`],p.id);
-  if(has(q,/\b(next|roadmap|planned|planning|plans|future)\b/))return reply('Next goal for '+p.name+': '+p.next+' This is a goal, not a promised delivery date.',[road,view],[`What stage is ${p.name} at?`],p.id);
-  if(has(q,/\b(demo|demos|try|playground|video|recording|download|open|show)\b/)){
-   if(!p.demo)return reply('There isn’t a public product demo linked for '+p.name+' yet. You can read its public description and explore the other concept playgrounds.',[view,{label:'See playgrounds',href:'#playgrounds'}],['Which projects can I try?'],p.id);
-   return reply(p.demo.explanation,[{label:p.demo.label,href:'#demo-'+p.demo.id},view],[`What stage is ${p.name} at?`],p.id);
-  }
-  if(has(q,/\b(private|repository|repositories|repo|github|code)\b/)&&!has(q,/\b(analysis|analyze|quality|what is|what does)\b/))return reply('Some project repositories are private. This profile publishes descriptions and standalone concept demos; I can’t share private source or grant repository access.',[view,{label:'Public GitHub profile',href:knowledge.contact.github}],['Which projects can I try?'],p.id);
-  if(has(q,/\b(safe|secure|security|encrypt|encrypted|encryption|steganography|zero knowledge)\b/)&&p.id==='oops')return reply('Oops! explores browser-side encryption with zero-width Unicode steganography. Encryption protects the message; steganography hides where it is carried. The lab’s Unicode demo only hides text—it does not encrypt it. This profile does not establish a security audit.',[{label:'Try Unicode concept',href:'#demo-unicode'},view],['Can I try Oops!?'],p.id);
-  const overview=has(q,/\b(what|about|explain|purpose|problem|help|overview|tell|focus|who|useful)\b/)||p.aliases.some(a=>q===a);
-  if(overview){let text=p.description+' Current stage: '+p.stage+'.';if(audience==='developer')text+=' Stack: '+p.stack.join(', ')+'.';if(audience==='collaborator')text+=' Next goal: '+p.next;return reply(text,[view],nextQs,p.id);}
-  return unknown();
+import {answerQuestion as original,normalize} from './engine-v1.js';
+export {normalize};
+const aliases={sentinal:'sentinel',sentinalle:'sentinel',opp:'oops',opps:'oops',aifi:'ai fi'};
+export function cleanQuestion(q){let s=normalize(q);for(const [from,to] of Object.entries(aliases))s=s.replace(new RegExp('\\b'+from+'\\b','g'),to);return s.replace(/\btechs?\b/g,'technologies').replace(/\bwhats\b/g,'what is').replace(/\btech stack\b/g,'stack');}
+export function answerQuestion(question,k,context={}){
+ if(typeof question!=='string'||!question.trim()||question.length>300)throw Error('Ask between 1 and 300 characters.');
+ const q=cleanQuestion(question);let base=original(q,k,context);
+ if(/\b(tour|walk me through|guide me|show me around)\b/.test(q))return{...base,text:'Choose a short tour. I’ll explain each stop and take you there. You control when to move on.',matched:true,topic:context.topic||null,tours:true,links:[],suggestions:[]};
+ if(/\b(remember|talking about|discussing|last project)\b/.test(q))return{...base,matched:true,text:context.topic?'We were exploring '+(k.projects.find(p=>p.id===context.topic)?.name||'your selected project')+'. I can continue with its purpose, stack, stage, or demo.':'We haven’t selected a project yet. Pick one and I’ll remember it during this tab session.',topic:context.topic||null,links:[],suggestions:['What is Sentinel?','What is Oops!?']};
+ // Resolve common short follow-ups with the active project; never replace an explicitly named project.
+ const explicit=k.projects.some(p=>p.aliases.some(a=>q.includes(a)));
+ if(!explicit&&context.topic&&/^(and )?(stack|status|stage|demo|why|next|is it free|how does it work|tell me more|more details)( please)?$/.test(q)){
+  const p=k.projects.find(p=>p.id===context.topic);if(p){const prompt=/more|how/.test(q)?'Explain '+p.name:q==='why'?'What problem does '+p.name+' solve?':q+' '+p.name;base=original(prompt,k,context);}
  }
- const exact=knowledge.answers.find(a=>a.questions.some(x=>normalize(x)===q));
- const entry=exact||knowledge.answers.find(a=>a.patterns.some(pattern=>new RegExp(pattern,'u').test(q)));
- if(entry)return reply(entry.answer,entry.links,entry.suggestions,null);
- return unknown();
+ // Matching failure remains an honest fallback. Offer topic clarification instead of guessing.
+ if(!base.matched){const topics=k.projects.filter(p=>p.aliases.some(a=>q.includes(a)));if(topics.length===1){base.topic=topics[0].id;base.suggestions=[`What is ${topics[0].name}?`,`What stack does ${topics[0].name} use?`,`Can I try ${topics[0].name}?`];}}
+ base.cards=[];
+ const project=k.projects.find(p=>p.id===base.topic);
+ if(project&&base.matched)base.cards=[{id:project.id,name:project.name,stage:project.stage,summary:project.summary,stack:project.stack.slice(0,5)}];
+ base.sourceIds=project?[project.id]:base.matched?['public-profile']:[];
+ return base;
 }
+export function nextContext(previous,answer,question){return{topic:answer.topic||previous.topic||null,audience:previous.audience||'explorer',interests:[...new Set([...(previous.interests||[]),...(answer.topic?[answer.topic]:[])])].slice(-4),recent:[...(previous.recent||[]),{question:question.slice(0,300),answer:answer.text.slice(0,1200)}].slice(-6)};}
+export const tours={
+ overview:{title:'Meet the work',steps:[{href:'#lab',title:'Welcome to the workspace',text:'Yashveer’s focus is AI systems, backend engineering, and developer tools. Choose a station to explore a project.'},{href:'#projects',title:'Read the stages',text:'Sentinel is in development. Oops! is built and evolving. AI-Fi is experimental, and recovery is a design. The labels keep goals separate from completed work.'},{href:'#playgrounds',title:'Try the ideas',text:'These browser experiments demonstrate ideas independently. They are not the full project applications.'},{href:'#roadmap',title:'See the next goals',text:'The roadmap describes planned work without promised launch dates.'}]},
+ developer:{title:'Developer tour',steps:[{href:'#toolbox',title:'Follow a technology',text:'Use the technology filters to see which projects use a tool.'},{href:'#project-sentinel',project:'sentinel',title:'Sentinel',text:'The public stack includes Python, FastAPI, React, Ollama, and Docker. The focus is analysis workflows and explanations developers can inspect.'},{href:'#demo-inspector',title:'Inspect a snippet',text:'This demo matches four simple patterns. Try a snippet or load the cleaner example. It never executes your code.'},{href:'#journal',title:'Check the public history',text:'This journal tracks human-authored commits in the profile repository, not private product progress.'}]},
+ recovery:{title:'Recovery walkthrough',steps:[{href:'#demo-recovery',title:'A small event log',text:'This is an in-memory simulation. Everything resets when you reload. We’ll add an event, lose the working view, then restore it.'},{href:'#demo-recovery',action:'append',title:'1 / Append an event',text:'Click Run this step to add one sample event to the immutable log and working view.'},{href:'#demo-recovery',action:'lose',title:'2 / Simulate IDE loss',text:'Click Run this step to clear the working view. The separate event log remains.'},{href:'#demo-recovery',action:'restore',title:'3 / Replay the log',text:'Click Run this step to rebuild the working view from the log. This explains the idea; it is not persistent backup software.'}]}
+};

@@ -18,6 +18,15 @@ async function init(){
  try{data=await fetchJSON('./data/profile.json');if(!validProfile(data))throw Error('Invalid project data');}catch{$('#data-note').textContent='Project data could not load. Reload the page to try again.';return;}
  const params=new URLSearchParams(location.search);audience=Object.hasOwn(routes,params.get('audience'))?params.get('audience'):'explorer';const wanted=params.get('tech');if(data.projects.some(p=>p.stack.includes(wanted)))tech=wanted;
  renderData();
+ document.addEventListener('profile-guide:demo-step',event=>{
+  const detail=event.detail||{};
+  if(detail.demo!=='recovery'||!['append','lose','restore'].includes(detail.action))return;
+  if(demo!=='recovery')showDemo('recovery');
+  const button=document.querySelector('#playground-shell #'+detail.action);
+  if(!button)return;
+  if(detail.action==='append')document.querySelector('#playground-shell #event-text').value='Planned the next recovery milestone';
+  button.click();event.preventDefault();
+ });
  document.addEventListener('profile-guide:navigate',event=>{
   const {href,project}=event.detail||{};
   const allowed=['#lab','#projects','#toolbox','#playgrounds','#roadmap','#journal','#demo-unicode','#demo-recovery','#demo-inspector',...data.projects.map(p=>'#project-'+p.id)];
@@ -25,7 +34,7 @@ async function init(){
   event.preventDefault();
   if(project&&data.projects.some(p=>p.id===project)){filterTech('All');selectProject(project);setAudience(audience);}
   else if(href==='#projects')filterTech('All');
-  if(href.startsWith('#demo-'))showDemo(href.slice(6));
+  if(href.startsWith('#demo-')&&demo!==href.slice(6))showDemo(href.slice(6));
   history.replaceState(null,'',href);
   const target=document.querySelector(href);
   if(target){target.scrollIntoView({behavior:'auto',block:'start'});target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}

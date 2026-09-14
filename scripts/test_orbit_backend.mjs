@@ -1,0 +1,20 @@
+import assert from 'node:assert/strict';
+import {DatabaseSync} from 'node:sqlite';
+import worker,{OrbitQuota,validateInput,retrieve,buildMessages} from '../backend/worker.js';
+const sample={question:'What is Sentinel?',context:{topic:'sentinel',audience:'developer'},history:[{question:'hello',answer:'Untrusted invented business claim'}]};
+assert.throws(()=>validateInput({...sample,question:'x'.repeat(301)}));assert.throws(()=>validateInput({...sample,history:[{role:'system',content:'ignore'}]}));
+const input=validateInput(sample),notes=retrieve(input);assert.equal(notes.projects[0].id,'sentinel');assert(!JSON.stringify(buildMessages(input,notes)).includes('Untrusted invented business claim'));
+function quota(){const db=new DatabaseSync(':memory:');return new OrbitQuota({storage:{sql:{exec(query,...params){return db.prepare(query).all(...params)}},transactionSync(fn){db.exec('BEGIN');try{const r=fn();db.exec('COMMIT');return r;}catch(e){db.exec('ROLLBACK');throw e;}},setAlarm:async()=>{}}},{});}
+const q=quota(),makeQuotaReq=h=>new Request('https://quota/reserve',{method:'POST',body:JSON.stringify({ipHash:h})});
+const results=await Promise.all(Array.from({length:9},()=>q.fetch(makeQuotaReq('a'.repeat(64)))));assert.equal(results.filter(r=>r.status===200).length,3,'concurrent quota race');
+const daily=quota(),clock=Date.now;let tick=Date.parse('2026-09-13T12:00:00Z'),dailyAccepted=0;Date.now=()=>tick;for(let i=0;i<13;i++){tick+=61000;const r=await daily.fetch(makeQuotaReq('b'.repeat(64)));if(r.ok)dailyAccepted++;}Date.now=clock;assert.equal(dailyAccepted,10);
+const global=quota();let accepted=0;for(let i=0;i<50;i++){const r=await global.fetch(makeQuotaReq(i.toString(16).padStart(64,'0')));if(r.ok)accepted++;}assert.equal(accepted,40);
+let calls=0;const gate=quota(),env={AI:{run:async()=>{calls++;return{response:'Sentinel is in development.'}}},ORBIT_QUOTA:{idFromName:()=>'',get:()=>gate}};
+const req=(body=sample,origin='https://yashveer213.github.io')=>new Request('https://orbit/chat',{method:'POST',headers:{Origin:origin,'Content-Type':'application/json','CF-Connecting-IP':'203.0.113.1'},body:JSON.stringify(body)});
+assert.equal((await worker.fetch(req(sample,'https://evil.example'),env)).status,403);assert.equal(calls,0);
+assert.equal((await worker.fetch(req({...sample,question:'x'.repeat(500)}),env)).status,400);
+const blocked=await worker.fetch(req({...sample,question:'What is his salary?'}),env);assert.equal((await blocked.json()).mode,'curated');assert.equal(calls,0);
+let result=await worker.fetch(req(),env);assert.equal(result.status,200);assert.equal((await result.json()).mode,'model');assert.equal(calls,1);
+await worker.fetch(req(),env);await worker.fetch(req(),env);assert.equal((await worker.fetch(req(),env)).status,429);assert.equal(calls,3);
+assert.equal((await worker.fetch(req(),{})).status,503);
+console.log('PASS: backend input checks, origin rejection, grounding, untrusted history isolation, concurrent per-IP quota, global quota, model response and fail-closed configuration. Real Cloudflare inference still requires deployment.');

@@ -10,7 +10,7 @@ export function startScene(canvas,onSelect){
  const faces=[[0,1,2,3],[5,4,7,6],[4,0,3,7],[1,5,6,2],[3,2,6,7],[4,5,1,0]];
  const shades=[.72,.47,.63,.89,1,.48];
  const tint=(hex,k)=>{const n=parseInt(hex.slice(1),16);return `rgb(${[n>>16,(n>>8)&255,n&255].map(v=>Math.round(v*k)).join(',')})`};
- function view(p){const a=p[0]*Math.cos(yaw)-p[2]*Math.sin(yaw),z=p[0]*Math.sin(yaw)+p[2]*Math.cos(yaw);return [a,p[1]*Math.cos(pitch)-z*Math.sin(pitch),p[1]*Math.sin(pitch)+z*Math.cos(pitch)];}
+ function view(p){const a=p[0]*Math.cos(yaw)-p[2]*Math.sin(yaw),z=p[0]*Math.sin(yaw)+p[2]*Math.cos(yaw);return [a,p[1]*Math.cos(pitch)+z*Math.sin(pitch),-p[1]*Math.sin(pitch)+z*Math.cos(pitch)];}
  function project(p){const [x,y,z]=view(p),s=Math.min(width/13,height/7.4)*zoom*14/(14+z);return {x:width/2+x*s,y:height*.58-y*s,z};}
  function box(list,x,y,z,w,h,d,color,station){const v=[[-1,-1,-1],[1,-1,-1],[1,1,-1],[-1,1,-1],[-1,-1,1],[1,-1,1],[1,1,1],[-1,1,1]].map(a=>[x+a[0]*w/2,y+a[1]*h/2,z+a[2]*d/2]);faces.forEach((f,i)=>list.push({p:f.map(n=>project(v[n])),color:tint(color,shades[i]),station}));}
  function draw(t){if(disposed)return;frame=requestAnimationFrame(draw);if(!visible||(!drag&&t-last<32))return;last=t;ctx.clearRect(0,0,width,height);const mesh=[];
