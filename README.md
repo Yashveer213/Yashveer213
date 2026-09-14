@@ -150,11 +150,11 @@ Technologies I've used across my projects:
 Recent human-authored commits to this public profile repository. Updated daily; private product development is not inferred from these entries.
 
 <!-- JOURNAL:START -->
+- **2026-09-14** · [Upgrade Orbit to expressive 3D guide with tours and protected AI backend](https://github.com/Yashveer213/Yashveer213/commit/7ae827e039341f41d860be9712262adf2920b9b4)
+- **2026-09-13** · [Add Orbit animated profile guide with curated answers and lab navigation](https://github.com/Yashveer213/Yashveer213/commit/e7156d31c1c622eb78c7336bb9499b792a6a5d5d)
 - **2026-09-13** · [Switch all profile lab links to verified GitHub Pages hosting](https://github.com/Yashveer213/Yashveer213/commit/b9068ae58f1b507cf5a3ddd2d4475ed3ea2a45ad)
 - **2026-09-13** · [Set GitHub Pages canonical URL and trigger profile publication](https://github.com/Yashveer213/Yashveer213/commit/c2ebda1e539cbdd8541219e3bcda1724731bd994)
 - **2026-09-13** · [Prepare complete profile lab for GitHub Pages in docs](https://github.com/Yashveer213/Yashveer213/commit/cf2dc91be763a8a1ac0f78fce18760e1aca6e490)
-- **2026-09-13** · [Add interactive lab, 3D robot, project routes and automatic public journal](https://github.com/Yashveer213/Yashveer213/commit/0bf3e2be1c8a5283cb77dd5463e33b6752b93dc8)
-- **2026-09-12** · [Build animated profile and automated 3D activity chart](https://github.com/Yashveer213/Yashveer213/commit/24500ac6c251af672ebab356932cc7a11d7d672b)
 <!-- JOURNAL:END -->
 
 <details>
