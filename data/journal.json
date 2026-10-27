@@ -1,6 +1,6 @@
 {
   "scope": "Public profile repository commits only",
-  "updated": "2026-10-26T06:25:52.221341+00:00",
+  "updated": "2026-10-27T06:25:37.142599+00:00",
   "entries": [
     {
       "sha": "6ee36eb10eeaabe74d4ede668eb0d154dd22df1e",
@@ -25,12 +25,6 @@
       "title": "Switch all profile lab links to verified GitHub Pages hosting",
       "date": "2026-09-13T05:25:14Z",
       "url": "https://github.com/Yashveer213/Yashveer213/commit/b9068ae58f1b507cf5a3ddd2d4475ed3ea2a45ad"
-    },
-    {
-      "sha": "c2ebda1e539cbdd8541219e3bcda1724731bd994",
-      "title": "Set GitHub Pages canonical URL and trigger profile publication",
-      "date": "2026-09-13T05:23:05Z",
-      "url": "https://github.com/Yashveer213/Yashveer213/commit/c2ebda1e539cbdd8541219e3bcda1724731bd994"
     }
   ]
 }
